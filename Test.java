@@ -79,25 +79,26 @@ public class Test {
             Route route = new Route (roadsInRoute);
             System.out.println("");
 
-            System.out.println("Route " + routeNumber + ": ");
+            System.out.print("Route " + routeNumber + ": ");
             routeNumber += 1;
 
             if (Route.isConnected(roadsInRoute) == true) {
                 double lengthOfRoute = route.getLengthOfRoute();
-                System.out.println("  Length of the route is " + df.format(lengthOfRoute));
+                System.out.print("Length " + df.format(lengthOfRoute));
 
                 double carWidth = route.getMaxWidth();
-                System.out.println("  Maximum width of car on this route is " + df.format(carWidth)); 
+                System.out.print(", max width " + df.format(carWidth) + ": "); 
 
-                System.out.println("  Start at " + startLocations.get(roads.indexOf(roadsInRoute.get(0))).getName());
+                System.out.print("Start at " + startLocations.get(roads.indexOf(roadsInRoute.get(0))).getName() + ". ");
                 // System.out.println("Follow road " + roads.get(indicesOfRoadsInRoute.get(0)).getName());
 
                 for (int i = 1 ; i < indicesOfRoadsInRoute.size() + 1; i++) {
-                    System.out.println("  Follow " + roads.get(indicesOfRoadsInRoute.get(i - 1)).getName() + " to " + endLocations.get(roads.indexOf(roadsInRoute.get(i - 1))).getName() );
+                    System.out.print("Follow " + roads.get(indicesOfRoadsInRoute.get(i - 1)).getName() + " to " + endLocations.get(roads.indexOf(roadsInRoute.get(i - 1))).getName() + ". ");
                 }         
             } else {
-                System.out.println("  Invalid route");
+                System.out.print("Invalid route");
             }
+            // System.out.println("");
             
         }
 
